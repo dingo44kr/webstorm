@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>웨폰.html 진입</h1>
+<input type="button" value="홈으로" onclick="home()">
+<script>
+    function home(){
+      location.href='/';
+    };
+
+    $(function () {
+       battle(new Gun());
+       battle(new Cannon());
+       battle('새총');
+
+    });
+
+    var Gun = function () {
+        this.fire = function () {
+            return '총쏘기';
+        };
+    };
+    var Cannon = function () {
+        this.fire = function () {
+           return '대포쏘기';
+        }
+    };
+
+        function battle(weapon){
+            if (weapon.constructor == Gun){
+                alert(weapon.fire());
+            }else if(weapon.constructor == Cannon){
+                alert(weapon.fire());
+            }else {
+                alert('발사할수가 없습니다.');
+            }
+        }
+
+
+
+</script>
+
+</body>
+</html>
