@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>프로토타입.html 진입</h1>
+<input type="button" value="홈으로" onclick="">
+
+<script>
+   $(function () {
+       var hong = new Korean('홍길동');
+       alert(hong.getNation());
+   })
+    var Person = function (name) {
+        this.name = name || '무명';
+    }
+
+
+    Person.prototype.getName = function () {
+        return this.name;
+    }
+    Person.prototype.getNation = function () {
+        return '한국인';
+    }
+    var Korean = function (name) {
+        Person.apply(this, arguments);
+    }
+
+    Korean.prototype = new Person()
+
+</script>
+
+</body>
+</html>
